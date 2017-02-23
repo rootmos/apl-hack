@@ -6,5 +6,8 @@ N ← ⍳10000
 ({∧/0=(⍳10)|⍵}¨N)/N
 
 )copy primes
-factorize 36
-
+ps←trial_division 100
++qs←{ps factorize ⍵}¨⍳20
+f←{(⌈/{+/n=⍵}¨qs)*⍨n←⍵}
++m←⌈/⌈/¨qs
+×/f¨(ps≤m)/ps

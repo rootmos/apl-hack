@@ -5,6 +5,7 @@ trial_division ← {({∧/0≠(1↓⍳(⌊⍵*1÷2))|⍵}¨n)/n←(1↓⍳⍵)}
 trial_division 1000
 
 ∇factorize ← {
+  ⍵=1: 1
   ⍺ ← trial_division 1000
   ps ← ⍺
   ks ← {(0=qs|⍵)/qs←((ps≤⍵)/ps)}
