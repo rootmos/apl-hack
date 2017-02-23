@@ -1,7 +1,7 @@
 #!/usr/bin/dyalog -script
 ⍝ vim: kmp=dyalog
 
-d ← {⌊((10*⍳n)|⍵)÷(10*(⍳n)-1)}
+d ← {(n⍴10)⊤⍵}
 tz ← {((⌽⍵∊⍳9)⍳1)-1} ⍝ find number of trailing zeros
 r ← {⍵{⌽(-⍵)⌽⍺}tz⍵}
 p ← {∧/(r(d⍵))=(d⍵)}
