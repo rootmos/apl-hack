@@ -204,3 +204,9 @@ DISPLAY m
 n ← (15 40 63) (18 27 15)
 DISPLAY n
 +/¨n
+
+10 10 10 10⊤8379
+
+24 60 60⊤8379 ⍝ decode seconds to human-form
+
+2(⊥⍣¯1)83 ⍝ use inverse powers to decode fancily (J.Spe-5)
