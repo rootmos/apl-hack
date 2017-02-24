@@ -19,15 +19,16 @@ trial_division 1000
 
 ∇sieve←{
   N←⍵
-  s←(0,(⍵-1)⍴¯1)
+  s←(0,(⍵-1)⍴1)
   m←{N⍴(((⍵-1)⍴1),0)}
   f←{
-    N<i←⍵⍳¯1: ⍵
-    x←⍵∧(m i)
-    x[i]←1
-    ∇x
+    N<⍺: ⍵
+    0=⍺⌷⍵: (⍺+1)∇⍵
+    x←⍵∧(m ⍺)
+    x[⍺]←1
+    (⍺+1)∇x
   }
-  (f s)/⍳N
+  (2 f s)/⍳N
 }∇
 +test_sieve ← (sieve n)≡(trial_division n←1000)
 
