@@ -17,4 +17,18 @@ trial_division 1000
 }∇
 +test_factorize ← n≡(×/factorize)¨n←(⍳1000)
 
+∇sieve←{
+  N←⍵
+  s←(0,(⍵-1)⍴¯1)
+  m←{N⍴(((⍵-1)⍴1),0)}
+  f←{
+    N<i←⍵⍳¯1: ⍵
+    x←⍵∧(m i)
+    x[i]←1
+    ∇x
+  }
+  (f s)/⍳N
+}∇
++test_sieve ← (sieve n)≡(trial_division n←1000)
+
 )save primes
