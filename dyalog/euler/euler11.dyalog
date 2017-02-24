@@ -5,4 +5,4 @@
 )copy utils
 
 ls←LoadTEXT 'euler11.input'
-{stoi¨(' ' split ⍵)}¨ls
+{0≡⍵:⍬ ⋄ ⍎⍵}¨¨{' ' split ⍵}¨ls
