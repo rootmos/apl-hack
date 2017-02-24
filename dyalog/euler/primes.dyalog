@@ -13,3 +13,4 @@ factorize ← { ⍵=1:1 ⋄ ⍺←sieve 1000 ⋄ {⍵[⍋⍵]} ⍺ factorize_rec
 +test_factorize ← n≡(×/factorize)¨n←(⍳1000)
 
 )save primes
+)off
