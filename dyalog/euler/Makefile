@@ -1,4 +1,4 @@
-all: primes.dws utils.dws
+all: utils.dws tests.dws
 
 %.dws: %.dyalog
 	rm -f $@
