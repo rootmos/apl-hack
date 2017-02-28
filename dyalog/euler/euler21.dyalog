@@ -1,8 +1,5 @@
 #!/usr/bin/dyalog -script
 ⍝ vim: kmp=dyalog
 
-)copy utils
-
-ps←sieve 100
-{+/{(⍵≠n)/⍵}{⍺}⌸{×/((m⍴2)⊤⍵)/qs}¨⍳2*m←⍴qs←ps factorize (n←⍵)}¨1↓⍳10000
-
+am←{⍵=1:1 ⋄ +/(0=n|⍵)/n←⍳(⍵-1)}
++/({(b≠⍵)∧⍵=am(b←am⍵)}¨N)/N←⍳10000
