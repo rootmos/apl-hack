@@ -14,5 +14,9 @@ sieve←{ s←1 (⍵-1)/0 1 ⋄ (2 sieve_rec s)/⍳⍵ }
 }∇
 factorize_with_sieve ← {(sieve isqrt ⍵) factorize ⍵}
 
+nums←'0123456789'
+alph←'abcdefghijklmnopqrstuvwxyz'
+ALPH←'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
 )save utils
 )off
