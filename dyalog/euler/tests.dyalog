@@ -20,6 +20,11 @@ enableSALT
 
 +test_divisors ← (divisors_trial_division¨n)≡divisors_with_sieve¨n←⍳10000
 
++test_rs_0 ← 0 1 2 3 ≡ rs 1 2 3 4
++test_rs_1 ← 0 1 2 3 ≡ 1 rs 1 2 3 4
++test_rs_2 ← 0 0 0 1 ≡ 3 rs 1 2 3 4
++test_rs_3 ← (2 3 ⍴ 0 0 0 1 2 3) ≡ rs 2 3 ⍴ 1 2 3 4 5 6
+
 )cs
 )copy dfns
 ##.cmpx '#.utils.trial_division 10000' '#.utils.sieve 10000'

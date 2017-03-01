@@ -25,4 +25,6 @@ nums←'0123456789'
 alph←'abcdefghijklmnopqrstuvwxyz'
 ALPH←'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
+rs←{⍺←1 ⋄ (-⍴⍵)↑(-⍺)↓⍵} ⍝ shift right and fill with identity element to the left
+
 :EndNamespace
