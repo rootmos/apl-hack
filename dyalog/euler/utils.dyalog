@@ -27,4 +27,16 @@ ALPH←'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 rs←{⍺←1 ⋄ (-⍴⍵)↑(-⍺)↓⍵} ⍝ shift right and fill with identity element to the left
 
+triangle←{
+  N←⍵
+  z←⎕IO
+  ⍬⍺⍺{n m←⍵ ⋄ n=N+z:⍺ ⋄ n<m: ⍺∇((n+1) z) ⋄ (⍺,n ⍺⍺ m)∇(n (m+1))}z z
+}
+
+triangle_without_diagonal←{
+  N←⍵
+  z←⎕IO
+  ⍬⍺⍺{n m←⍵ ⋄ n=N+z:⍺ ⋄ n=m: ⍺∇((n+1) z) ⋄ (⍺,n ⍺⍺ m)∇(n (m+1))}z z
+}
+
 :EndNamespace

@@ -25,6 +25,9 @@ enableSALT
 +test_rs_2 ← 0 0 0 1 ≡ 3 rs 1 2 3 4
 +test_rs_3 ← (2 3 ⍴ 0 0 0 1 2 3) ≡ rs 2 3 ⍴ 1 2 3 4 5 6
 
++tests_triangle ← ((1 1) (2 1) (2 2) (3 1) (3 2) (3 3))≡ {⊂(⍺ ⍵)} triangle 3
++tests_triangle_without_diagonal ← ((2 1) (3 1) (3 2))≡ {⊂(⍺ ⍵)} triangle_without_diagonal 3
+
 )cs
 )copy dfns
 ##.cmpx '#.utils.trial_division 10000' '#.utils.sieve 10000'
