@@ -39,4 +39,11 @@ triangle_without_diagonal←{
   ⍬⍺⍺{n m←⍵ ⋄ n=N+z:⍺ ⋄ n=m: ⍺∇((n+1) z) ⋄ (⍺,n ⍺⍺ m)∇(n (m+1))}z z
 }
 
+triangle_without_diagonal_vector←{
+  v←⍵
+  N←⍴v
+  z←⎕IO
+  ⍬⍺⍺{n m←⍵ ⋄ n=N+z:⍺ ⋄ n=m: ⍺∇((n+1) z) ⋄ (⍺,v[n] ⍺⍺ v[m])∇(n (m+1))}z z
+}
+
 :EndNamespace
