@@ -1,0 +1,3 @@
+Load utils
+Load utils_tests
+Run #.utils_tests.bench

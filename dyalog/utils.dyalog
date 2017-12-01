@@ -1,9 +1,12 @@
 ⍝ vim: kmp=dyalog
 :Namespace utils
 
-isqrt←⌊(1÷2)*⍨⊢
+tc←{~⍵:('test-case failed: ',⍺)⎕SIGNAL 90 ⋄ ⎕←'test-case ok: ',⍺}
 
-split ← { ⍵≡⍬:⍬ ⋄ 0=⍴⍵:⍬ ⋄ n←⍵⍳⍺ ⋄ (⊂(n-1)↑⍵),⍺∇(n↓⍵) }
+isqrt←⌊(1÷2)*⍨⊢ ⍝ integer square root
+di←10⊥⍣¯1⊣ ⍝ digits
+rs←{⍺←1 ⋄ (-⍴⍵)↑(-⍺)↓⍵} ⍝ shift right and fill with identity element to the left
+split←{⍵≡⍬:⍬ ⋄ 0=⍴⍵:⍬ ⋄ n←⍵⍳⍺ ⋄ (⊂(n-1)↑⍵),⍺∇(n↓⍵)} ⍝ split vector ⍵ using separator ⍺
 
 trial_division ← { ({∧/0≠(1↓⍳⌊⍵*1÷2)|⍵}¨n)/n←1↓⍳⍵ }
 sieve_rec←{ (⍴⍵)<⍺:⍵ ⋄ 0=⍺⌷⍵:(⍺+1)∇⍵ ⋄ ms←(⍴⍵)⍴(⍺-1) 1/0 1 ⋄ (⍺+1)∇⍵>(<\ms)<ms }
@@ -24,8 +27,6 @@ divisors_with_sieve ← {(sieve isqrt ⍵) divisors ⍵}
 nums←'0123456789'
 alph←'abcdefghijklmnopqrstuvwxyz'
 ALPH←'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-rs←{⍺←1 ⋄ (-⍴⍵)↑(-⍺)↓⍵} ⍝ shift right and fill with identity element to the left
 
 triangle←{
   N←⍵
