@@ -10,6 +10,9 @@ enableSALT
 ⊢'#'⎕NS'#.utils.isqrt'
 ⊢'#'⎕NS'#.utils.rs'
 ⊢'#'⎕NS'#.utils.split'
+⊢'#'⎕NS'#.utils.pd'
+⊢'#'⎕NS'#.utils.ib'
+⊢'#'⎕NS'#.utils.ad'
 
 ⎕SAVE 'repl'
 )off

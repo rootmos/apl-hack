@@ -6,8 +6,7 @@ ds←⊃,/{(|py⍵)+|px⍵}¨⍳1000
 +a←ds[368078]
 
 m←(M←2⍴sl N←5)⍴0 ⋄ C←⌈M÷2
-ps←(C+⊢)¨(⊃,/py¨⍳N),¨(⊃,/px¨⍳N) ⍝ positions in the spiral
-ad←{({~∨/(1 1>⍵)∨M<⍵}¨ps)/ps←(⍵+⊢)¨,(2-⍳3)∘.,(2-⍳3)} ⍝ neighbors of ⍵ in matrix w/ dim M
+ps←(⊃,/py¨⍳N)(C+⊣,⊢)¨(⊃,/px¨⍳N) ⍝ positions in the spiral
 m[⊂C]←1
-+b←xs⌷⍨1⍳⍨368078<xs←{+m[⊂⍵]←+/(m⌷⍨⊢)¨ad⍵}¨1↓ps
++b←xs⌷⍨1⍳⍨368078<xs←{+m[⊂⍵]←+/(m⌷⍨⊢)¨M ad⍵}¨1↓ps
 ⍝m

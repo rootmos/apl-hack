@@ -3,9 +3,14 @@
 
 tc←{~⍵:('test-case failed: ',⍺)⎕SIGNAL 90 ⋄ ⎕←'test-case ok: ',⍺}
 
-isqrt←⌊(1÷2)*⍨⊢ ⍝ integer square root
-di←10⊥⍣¯1⊣ ⍝ digits
+isqrt←⌊(÷2)*⍨⊢          ⍝ integer square root
+di←10⊥⍣¯1⊣              ⍝ digits
 rs←{⍺←1 ⋄ (-⍴⍵)↑(-⍺)↓⍵} ⍝ shift right and fill with identity element to the left
+pd←{(1↓⍵)-(¯1↓⍵)}       ⍝ pairwise difference
+
+ib←⍱/(1 1>⊢)∨<                            ⍝ ⍵ is in bounds of matrix w/ dim ⍺
+ad←{ps/⍨(⍺ib⊢)¨ps←,(2-⍳3)∘.(⍵+⊣,⊢)(2-⍳3)} ⍝ neighbors of ⍵ in matrix w/ dim ⍺
+
 split←{⍵≡⍬:⍬ ⋄ 0=⍴⍵:⍬ ⋄ n←⍵⍳⍺ ⋄ (⊂(n-1)↑⍵),⍺∇(n↓⍵)} ⍝ split vector ⍵ using separator ⍺
 
 trial_division ← { ({∧/0≠(1↓⍳⌊⍵*1÷2)|⍵}¨n)/n←1↓⍳⍵ }
@@ -24,7 +29,7 @@ divisors_trial_division ← {(0=m|⍵)/m←⍳⍵}
 divisors ← {⍵=1:1⍴1 ⋄ {⍵[⍋⍵]} {⍺}⌸{×/((m⍴2)⊤⍵)/qs}¨⍳2*m←⍴qs←⍺ factorize ⍵}
 divisors_with_sieve ← {(sieve isqrt ⍵) divisors ⍵}
 
-nums←'0123456789'
+nums←⎕D
 alph←'abcdefghijklmnopqrstuvwxyz'
 ALPH←'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
