@@ -13,6 +13,7 @@ enableSALT
 ⊢'#'⎕NS'#.utils.pd'
 ⊢'#'⎕NS'#.utils.ib'
 ⊢'#'⎕NS'#.utils.ad'
+⊢'#'⎕NS'#.utils.ic'
 
 ⎕SAVE 'repl'
 )off

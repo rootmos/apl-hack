@@ -7,6 +7,7 @@ isqrt←⌊(÷2)*⍨⊢          ⍝ integer square root
 di←10⊥⍣¯1⊣              ⍝ digits
 rs←{⍺←1 ⋄ (-⍴⍵)↑(-⍺)↓⍵} ⍝ shift right and fill with identity element to the left
 pd←{(1↓⍵)-(¯1↓⍵)}       ⍝ pairwise difference
+ic←{1↓⊃,/⍺,¨⍵}          ⍝ intercalate vector ⍵ with element ⍺
 
 ib←⍱/(1 1>⊢)∨<                            ⍝ ⍵ is in bounds of matrix w/ dim ⍺
 ad←{ps/⍨(⍺ib⊢)¨ps←,(2-⍳3)∘.(⍵+⊣,⊢)(2-⍳3)} ⍝ neighbors of ⍵ in matrix w/ dim ⍺
