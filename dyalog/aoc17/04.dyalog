@@ -1,5 +1,2 @@
-+/{~∨/,(n∘.≠n←⍳⍴x)∧x∘.≡x←' 'split⍵}¨getfile'input_04.txt'
-
-s←{⍵[⍋⍵]}
-f←{(s⍺)≡(s⍵)}
-+/{~∨/,(n∘.≠n←⍳⍴x)∧x(∘.f)x←' 'split⍵}¨getfile'input_04.txt'
++/{∧/,(I⍴x)∨x∘.≢x←' 'split⍵}¨getfile'input_04.txt'
++/{∧/,(I⍴x)∨x∘.((sa⊣)≢(sa⊢))x←' 'split⍵}¨getfile'input_04.txt'
