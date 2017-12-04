@@ -19,13 +19,17 @@
 
   'sa 1' tc 1 2 3 ≡ sa 1 3 2
   'sa 2' tc ⍬ ≡ sa ⍬
+  'sa 3' tc 'aac' 'ab' ≡ sa 'ab' 'aac'
   'sd 1' tc 3 2 1 ≡ sd 1 3 2
   'sd 2' tc ⍬ ≡ sd ⍬
+  'sd 3' tc 'ab' 'aac' ≡ sd 'aac' 'ab'
 
   'I 1' tc (3 3⍴1 0 0 0 1 0 0 0 1) ≡ I 3
   'I 2' tc (1 1⍴1) ≡ I 1
   'I 3' tc (0 0⍴0) ≡ I 0
   'I 4' tc (1 1⍴1) ≡ I 1⍴1
+
+  'ep' tc (1 2)(2 3) ≡ ,ep 1 2 3
 
   'pd 1' tc 1 5 ≡ pd 1 2 7
   'pd 2' tc ⍬ ≡ pd 1

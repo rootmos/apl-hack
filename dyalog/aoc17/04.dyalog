@@ -1,2 +1,6 @@
-+/{∧/,(I⍴x)∨x∘.≢x←' 'split⍵}¨getfile'input_04.txt'
-+/{∧/,(I⍴x)∨x∘.((sa⊣)≢(sa⊢))x←' 'split⍵}¨getfile'input_04.txt'
++/{∧/,(I⍴⍵)∨⍵∘.≢⍵}¨t←' 'split¨getfile'input_04.txt'
++/{∧/,(I⍴⍵)∨⍵∘.≢⍵}¨sa¨¨t
+
+⍝ @inrick's solution
++/(∧/≢ep∘sa)¨t←' 'split¨getfile'input_04.txt'
++/(∧/≢ep∘sa)¨sa¨¨t
