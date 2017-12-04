@@ -210,3 +210,8 @@ DISPLAY n
 24 60 60⊤8379 ⍝ decode seconds to human-form
 
 2(⊥⍣¯1)83 ⍝ use inverse powers to decode fancily (J.Spe-5)
+
++x ← 16 (⊥⍣¯1) 350685
++b ←'0123456789abcdef'
++y ← b[x]
+16⊥b⍳y
