@@ -1,11 +1,4 @@
-rns←sa∪⊃¨ls←' 'ltov¨getfile'input_08.txt'    ⍝ register names
-opn←(∊'>') (∊'<') '>=' '==' '<=' '!='        ⍝ operator names
-ops←'>' '<' '≥' '=' '≤' '≠'                  ⍝ operators
-r←(⍴rns)⍴0                                   ⍝ initial registers
-∇f←{
-  ~r[rns⍳⍵[5]](⍎ops[opn⍳⍵[6]])⍎⊃⍵[7]:r       ⍝ evaluate condition
-  r[rns⍳⍵[1]]+←1 ¯1['inc' 'dec'⍳⍵[2]]×⍎⊃⍵[3] ⍝ modify register
-  r                                          ⍝ return current registers
-}∇
-+b←⌈/⍣≡↑f¨ls
-+a←⌈/r
+rns←∪⊃¨ls←' 'ltov¨getfile'input_08.txt' ⋄ N←⍴rns
+o←{'>' '<' '≥' '=' '≤' '≠' 1 ¯1[(∊'>')(∊'<')'>=' '==' '<=' '!=' 'inc' 'dec'⍳⍵]}
+f←{⍺+(⍵[1]≡¨rns)××/(⍺[rns⍳⍵[5]](⍎o⍵[6])⍎⊃⍵[7])(o⍵[2])(⍎⊃⍵[3])}
+{(⌈/⊃¯1↑⍵),⌈/⌈/¨⍵}⊃¨{⊂(⊃⍺)f⍵}ascan(⊂⊂N⍴0),ls
