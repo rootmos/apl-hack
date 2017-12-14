@@ -3,15 +3,16 @@
   M←⍴ls←(⎕UCS⍵),17 31 73 47 23
   f←{(+/⍵)⌽ ⊃,/ (⌽¨@(0⍴⍨0<⊃⍵)) (⊃(⊂⍳256)∨.=0,⊃⍵)⊂⍺}
   r←{(⍺)f foldl ls,¨(M×⍵)+⍳M}
-  ⊃,/≠/¨((8⍴2)⊤⊢)¨(1=16|1+⍳256)⊂ (-(64×+/ls)++/⍳64×M)⌽ (⍳256)r foldl⍳64
+  ⊃,/≠/¨(⊂8⍴2)⊤¨(1=16|1+⍳256)⊂ (-(64×+/ls)++/⍳64×M)⌽ (⍳256)r foldl⍳64
 }∇
-+a←+/,sq←↑{kh 'jxqlasbh-',⍕⍵}¨⍳128
++a←+/,sq←↑{kh'jxqlasbh-',⍕⍵}¨⍳128
 
-⍝ pos w/ prev            prev pos          spread in direction
-md←⍸sq∧¯128↑¯1↓sq      ⋄ mdp←{⍵-1 0}¨md  ⋄ fd←{(⍵[mdp]@md)⍵}
-mu←⍸sq∧128↑1↓sq        ⋄ mup←{⍵-¯1 0}¨mu ⋄ fu←{(⍵[mup]@mu)⍵}
-mr←⍸⍉(⍉sq)∧¯128↑¯1↓⍉sq ⋄ mrp←{⍵-0 1}¨mr  ⋄ fr←{(⍵[mrp]@mr)⍵}
-ml←⍸⍉(⍉sq)∧128↑1↓⍉sq   ⋄ mlp←{⍵-0 ¯1}¨ml ⋄ fl←{(⍵[mlp]@ml)⍵}
-f←{i←1?4 ⋄ i=0:fd⍵ ⋄ i=1:fu⍵ ⋄ i=2:fr⍵ ⋄ fl⍵} ⍝ random direction
-g←{(⍵[mdp]≡⍵[md])∧(⍵[mrp]≡⍵[mr])}             ⍝ done
-+b←1-⍨⍴∪, (f⍣g) ((1+⍳a)@(⍸sq))sq              ⍝ no regions
+⍝ prev pos    pos w/ prev pos
+pdp←{⍵-1 0}¨  pd←⍸sq∧¯128↑¯1↓sq
+pup←{⍵-¯1 0}¨ pu←⍸sq∧128↑1↓sq
+prp←{⍵-0 1}¨  pr←⍸⍉(⍉sq)∧¯128↑¯1↓⍉sq
+plp←{⍵-0 ¯1}¨ pl←⍸⍉(⍉sq)∧128↑1↓⍉sq
+ds←(pdp pd)(pup pu)(prp pr)(plp pl)    ⍝ directions
+f←{d←⊃ds[1?4] ⋄ ((⍵[⊃d[0]])@(⊃d[1]))⍵} ⍝ spread in random direction
+g←{(⍵[pdp]≡⍵[pd])∧(⍵[prp]≡⍵[pr])}      ⍝ done
++b←1-⍨⍴∪, (f⍣g) ((1+⍳a)@(⍸sq))sq       ⍝ no regions
