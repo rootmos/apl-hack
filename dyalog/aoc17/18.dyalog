@@ -18,4 +18,4 @@ rcv←{0≠⍺eo⍵[2]:⍺[O]@I⊢⍺ ⋄ ⍺}                 ⍝ recover
 rcv←{(-⍬≡i)+@pc⊢(1↓i)(⊃i←⊃⍺[I])@(I,r⍵[2])⊢⍺} ⍝ receive or retry instruction
 xch←{⍬⍬@Os⊢ (⌽¨¨⍵[⌽Os]),⍨¨@Is⊢⍵}             ⍝ exchange messages
 dl←{⍺[1 2,¨pc]≡⍵[1 2,¨pc]}                   ⍝ deadlock
-3⌷ {xch((⍴⊃xs[⊂2,O])+⊢)@3⊢xs←go¨@1 2⊢⍵}⍣dl (ri¨0 1),0
+3⌷ {xch (⍴⊃xs[⊂2,O])+@3⊢ xs←go¨@1 2⊢⍵}⍣dl (ri¨0 1),0
